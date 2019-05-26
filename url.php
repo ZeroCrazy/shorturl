@@ -1,7 +1,7 @@
 <?php
     require 'core.php';
     if($_GET['url']){
-        $url = filter_var(htmlspecialchars(mysql_real_escape_string($_GET['url'])), FILTER_SANITIZE_STRING);
+        $url = htmlspecialchars($_GET['url']);
         $sql_url = "SELECT * FROM urls WHERE url='$url' LIMIT 1";$result_url = $conn->query($sql_url);
         if ($result_url->num_rows > 0) {
         foreach ($result_url as $u) {
